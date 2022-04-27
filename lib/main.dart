@@ -98,9 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Tooltip(
+              message: 'CounterText',
+              child: Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headline4,
+              ),
             ),
           ],
         ),
@@ -110,6 +113,20 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class DemoView extends StatelessWidget {
+  const DemoView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: 'Veli',
+      child: Column(
+        children: const [Text('data')],
+      ),
     );
   }
 }

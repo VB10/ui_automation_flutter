@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:ui_automation_flutter/main.dart' as app;
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -17,12 +18,13 @@ void main() {
 
       // Emulate a tap on the floating action button.
       await tester.tap(fab);
-
+      await tester.tap(fab);
+      await tester.tap(fab);
       // Trigger a frame.
       await tester.pumpAndSettle();
 
       // Verify the counter increments by 1.
-      expect(find.text('1'), findsOneWidget);
+      expect(find.text('4'), findsOneWidget);
     });
   });
 }
